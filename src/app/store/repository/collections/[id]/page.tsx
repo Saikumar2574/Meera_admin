@@ -24,20 +24,7 @@ function page() {
     },
   ];
   // Recursive Tree Node Component (Always Expanded)
-  function TreeNode({ node }) {
-    return (
-      <div className="ml-4">
-        {node.children && (
-          <div className="pl-4">
-            {node.children.map((child, index) => (
-              <TreeNode key={index} node={child} />
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  }
-
+ 
   return (
     <div className="flex flex-col">
      <hr className="my-5"/>

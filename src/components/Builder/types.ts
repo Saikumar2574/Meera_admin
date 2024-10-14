@@ -2,7 +2,7 @@ import type { MutableRefObject } from 'react';
 import type { UniqueIdentifier } from '@dnd-kit/core';
 
 export interface TreeItem {
-  depth: number;
+  depth?: number;
   id: UniqueIdentifier;
   href?: string;
   children: TreeItem[];

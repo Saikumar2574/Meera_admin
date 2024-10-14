@@ -25,7 +25,7 @@ const Content: React.FC<ContentProps> = ({ selectedItem }) => {
       case "Repository":
         return <Repository />;
       case "Actions":
-        return <Actions />;
+        return <div>Action Component</div>;
       case "Suggestions":
         return <div>Suggestions Component</div>; // Replace with actual component
       case "Journey Tracking":

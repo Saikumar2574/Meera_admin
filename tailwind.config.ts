@@ -64,7 +64,7 @@ const config: Config = {
   plugins: [
     require("tailwindcss-animate"),
 
-    function ({ addBase }) {
+    function ({ addBase }:any) {
       addBase({
         // Global base styles
         "*": {
