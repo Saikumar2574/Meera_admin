@@ -1,3 +1,4 @@
+"use client";
 import "./builder.css";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -91,6 +92,11 @@ export function MenuBuilder({
   const [activeId, setActiveId] = useState<UniqueIdentifier | null>(null);
   const [overId, setOverId] = useState<UniqueIdentifier | null>(null);
   const [offsetLeft, setOffsetLeft] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Code will only run once on the client
+  }, []);
   const [currentPosition, setCurrentPosition] = useState<{
     parentId: UniqueIdentifier | null;
     overId: UniqueIdentifier;
@@ -198,72 +204,74 @@ export function MenuBuilder({
     <div
       style={{
         display: "flex",
-        
+
         flexDirection: "column",
       }}
       className="p-4 ml-5"
     >
-      <DndContext
-        accessibility={{ announcements }}
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        measuring={measuring}
-        onDragStart={handleDragStart}
-        onDragMove={handleDragMove}
-        onDragOver={handleDragOver}
-        onDragEnd={handleDragEnd}
-        onDragCancel={handleDragCancel}
-      >
-        <SortableContext
-          items={sortedIds}
-          strategy={verticalListSortingStrategy}
+      {isClient && (
+        <DndContext
+          accessibility={{ announcements }}
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          measuring={measuring}
+          onDragStart={handleDragStart}
+          onDragMove={handleDragMove}
+          onDragOver={handleDragOver}
+          onDragEnd={handleDragEnd}
+          onDragCancel={handleDragCancel}
         >
-          {flattenedItems.map(
-            ({ id, children, collapsed, depth, ...otherFields }) => (
-              <SortableTreeItem
-                show={
-                  activeId && activeItem ? true.toString() : false.toString()
-                }
-                key={id}
-                id={id}
-                updateitem={(id, data) => {
-                  setItems((items) => updateItem(id, data, items));
-                }}
-                value={id as string}
-                otherfields={otherFields}
-                depth={id === activeId && projected ? projected.depth : depth}
-                indentationWidth={indentationWidth}
-                indicator={style == "bordered"}
-                collapsed={Boolean(collapsed && children.length)}
-                onCollapse={undefined}
-                childCount={getChildCount(items, activeId) + 1}
-                onRemove={() => handleRemove(id)}
-              />
-            )
-          )}
-          {createPortal(
-            <DragOverlay
-              dropAnimation={dropAnimationConfig}
-              modifiers={style == "bordered" ? [adjustTranslate] : undefined}
-            >
-              {activeId && activeItem ? (
+          <SortableContext
+            items={sortedIds}
+            strategy={verticalListSortingStrategy}
+          >
+            {flattenedItems.map(
+              ({ id, children, collapsed, depth, ...otherFields }) => (
                 <SortableTreeItem
-                  id={activeId}
-                  depth={activeItem.depth}
-                  clone
-                  // Todo: Pass items here
-                  childCount={getChildCount(items, activeId) + 1}
-                  value={activeId.toString()}
-                  otherfields={activeItem}
+                  show={
+                    activeId && activeItem ? true.toString() : false.toString()
+                  }
+                  key={id}
+                  id={id}
+                  updateitem={(id, data) => {
+                    setItems((items) => updateItem(id, data, items));
+                  }}
+                  value={id as string}
+                  otherfields={otherFields}
+                  depth={id === activeId && projected ? projected.depth : depth}
                   indentationWidth={indentationWidth}
-                  childs={getChildrens(items, activeId)}
+                  indicator={style == "bordered"}
+                  collapsed={Boolean(collapsed && children.length)}
+                  onCollapse={undefined}
+                  childCount={getChildCount(items, activeId) + 1}
+                  onRemove={() => handleRemove(id)}
                 />
-              ) : null}
-            </DragOverlay>,
-            document.body
-          )}
-        </SortableContext>
-      </DndContext>
+              )
+            )}
+            {createPortal(
+              <DragOverlay
+                dropAnimation={dropAnimationConfig}
+                modifiers={style == "bordered" ? [adjustTranslate] : undefined}
+              >
+                {activeId && activeItem ? (
+                  <SortableTreeItem
+                    id={activeId}
+                    depth={activeItem.depth}
+                    clone
+                    // Todo: Pass items here
+                    childCount={getChildCount(items, activeId) + 1}
+                    value={activeId.toString()}
+                    otherfields={activeItem}
+                    indentationWidth={indentationWidth}
+                    childs={getChildrens(items, activeId)}
+                  />
+                ) : null}
+              </DragOverlay>,
+              document.body
+            )}
+          </SortableContext>
+        </DndContext>
+      )}
     </div>
   );
 

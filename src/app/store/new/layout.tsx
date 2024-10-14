@@ -8,9 +8,9 @@ function layout({
 }>) {
 
   return (
-    <div>
+    <div className="p-4 overflow-hidden">
       <Steps />
-      <div className="bg-white rounded-xl p-4">{children}</div>
+      <div className=" p-4">{children}</div>
     </div>
   );
 }

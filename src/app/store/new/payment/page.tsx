@@ -40,7 +40,7 @@ function Page() {
       {!isSuccess ? (
         <Button onClick={() => setIsSuccess(true)}>Pay Now</Button>
       ) : (
-        <Button onClick={() => router.push("/store/new/collections")}>
+        <Button onClick={() => router.push("/store/new/catalog_structure")}>
           Continue
         </Button>
       )}

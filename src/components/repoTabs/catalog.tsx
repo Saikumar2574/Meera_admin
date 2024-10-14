@@ -1,17 +1,9 @@
 "use client";
 import { MenuBuilder } from "@/components/Builder/MenuBuilder";
 import { Input } from "@/components/ui/input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal } from "antd";
-import axios from "axios";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import { RefreshCcw } from "lucide-react";
+
 import { Folder, Tree } from "../ui/file-tree";
 
 function CatalogStructure() {
@@ -184,10 +176,6 @@ function CatalogStructure() {
     </ul>
   );
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
   const handleOk = () => {
     setIsModalOpen(false);
     setMenus([
@@ -286,21 +274,3 @@ function CatalogStructure() {
 
 export default CatalogStructure;
 
-const initialMenus = [
-  {
-    id: "Home",
-    name: "Home",
-    children: [],
-  },
-  {
-    id: "Collections",
-    name: "Collections",
-    children: [
-      {
-        id: "Spring",
-        name: "Spring",
-        children: [{ id: "Luggage", name: "Luggage", children: [] }],
-      },
-    ],
-  },
-];

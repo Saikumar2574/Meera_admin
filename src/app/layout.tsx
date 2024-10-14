@@ -15,7 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <ThemeProvider
           attribute="class"
@@ -23,7 +28,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="bg-[#f5f5f5] dark:bg-black overflow-hidden">{children}</div>
+          <div className="bg-[#f5f5f5] dark:bg-black overflow-hidden">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

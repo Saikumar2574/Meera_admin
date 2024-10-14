@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: "Montserrat", "san-serif";
 }
 
 @layer utilities {
@@ -77,7 +77,6 @@ body {
   }
 }
 
-
 /* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -99,4 +98,6 @@ body {
   background: #7c7d7f;
 }
 
-
+.ant-progress-inner {
+  border-radius: 20px;
+}

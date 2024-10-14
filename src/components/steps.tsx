@@ -14,11 +14,12 @@ function Steps() {
   }, [pathname]);
 
   const steps = [
-    { label: "Setup", step: null, path: "/store/new/setup", stepNumber: 1 },
+    { label: "Store Details", step: null, path: "/store/new/setup", stepNumber: 1 },
     { label: "Configuration", step: "/organization/config", path: "/store/new/configuration", stepNumber: 2 },
-    { label: "Plugin Installation", step: "/organization/plugin", path: "/store/new/installation", stepNumber: 3 },
-    { label: "Payment", step: "/organization/payment", path: "/store/new/payment", stepNumber: 4 },
-    { label: "Review", step: "/organization/review", path: "/store/new/data-preparation", stepNumber: 5 },
+    // { label: "Plugin Installation", step: "/organization/plugin", path: "/store/new/installation", stepNumber: 2 },
+    { label: "Payment", step: "/organization/payment", path: "/store/new/payment", stepNumber: 3 },
+    { label: "Catalog Structure", step: "/organization/catalog", path: "/store/new/payment", stepNumber: 4 },
+    { label: "Review", step: "/organization/review", path: "/store/new/review", stepNumber: 5 },
   ];
 
   // Function to check if a step is active
@@ -35,7 +36,7 @@ function Steps() {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl mb-5">
+    <div className="bg-white dark:bg-[#87878750] border border-gray-200 rounded-xl mb-5">
       <div className="py-5 px-7">
         <nav className="flex flex-wrap items-center gap-7">
           {steps.map((step, index) => (
@@ -44,15 +45,15 @@ function Steps() {
                 <Link
                   href={step.path}
                   passHref
-                  className={`inline-flex items-center text-base font-medium ${
-                    isActiveStep(step.path) ? "text-gray-900" : "text-gray-500"
+                  className={`inline-flex items-center text-base font-semibold ${
+                    isActiveStep(step.path) ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-white"
                   }`}
                 >
                   <span
                     className={`inline-flex items-center justify-center w-6 h-6 mr-3 text-sm font-bold ${
                       isActiveStep(step.path)
                         ? "text-white bg-indigo-600 border-transparent"
-                        : "text-gray-500 bg-white border-gray-200"
+                        : "text-white bg-black border-gray-200"
                     } rounded-full`}
                   >
                     {step.stepNumber}
@@ -61,10 +62,10 @@ function Steps() {
                 </Link>
               ) : (
                 <span
-                  className={`inline-flex items-center text-base font-medium text-gray-300 cursor-not-allowed`}
+                  className={`inline-flex items-center text-base font-semibold text-gray-300 dark:text-gray-500 cursor-not-allowed`}
                 >
                   <span
-                    className={`inline-flex items-center justify-center w-6 h-6 mr-3 text-sm font-bold text-gray-300 bg-gray-100 border-gray-200 rounded-full`}
+                    className={`inline-flex items-center justify-center w-6 h-6 mr-3 text-sm font-bold text-gray-300 bg-gray-100 dark:bg-gray-400 border-gray-200 rounded-full`}
                   >
                     {step.stepNumber}
                   </span>

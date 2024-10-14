@@ -24,3 +24,4 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/auth/signin/page.js"],
   "exclude": ["node_modules"]
 }
+
