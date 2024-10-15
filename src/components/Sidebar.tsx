@@ -17,7 +17,7 @@ const Sidebar = () => {
     { label: "Knowledge Base", path: "/store/repository" },
     { label: "Meera Settings", path: "/store/meera-settings"},
     { label: "Suggestions", path: "/store/suggestions" },
-    { label: "Journey Tracking", path: "/store/journey-tracking" },
+    { label: "Journey Tracking", path: "/store/journey" },
     { label: "Support Tickets", path: "/store/support" },
   ];
 

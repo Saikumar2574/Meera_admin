@@ -73,7 +73,7 @@ function Page() {
     //   console.log("Response:", response);
 
     //   if (response) {
-    router.push("/store/new/payment");
+    router.push("/store/new/installation");
     //   }
     // } catch (error) {
     //   console.error("Error during form submission:", error);
@@ -156,41 +156,13 @@ function Page() {
           </div>
         )}
       </div>
-      {!isVerified ? (
-        <>
-          <Button
-            type="button"
-            onClick={() => setIsVerified(true)}
-            className="flex px-6 py-3 gap-4 text-lg mt-4"
-          >
-            Verify
-          </Button>
-        </>
-      ) : (
-        <>
-          <div className="mt-16">
-            <h6 className="font-bold text-2xl mb-4">
-              Install & Activate Plugin
-            </h6>
-            <ul className="list-disc ml-5 mb-6 space-y-2 text-gray-700">
-              <li>Download the plugin from the provided link.</li>
-              <li>Navigate to your WordPress dashboard.</li>
-              <li>Go to the "Plugins" section and click "Add New".</li>
-              <li>Upload the downloaded plugin file and click "Install".</li>
-              <li>Once installed, click "Activate" to enable the plugin.</li>
-            </ul>
-            {/* Plugin Link */}
-            <Button>Download Plugin</Button>
-          </div>
-          <Button
-            type="button"
-            onClick={handleSubmit}
-            className="ml-auto flex px-6 py-3 gap-4 text-lg"
-          >
-            Next <MoveRight />
-          </Button>
-        </>
-      )}
+      <Button
+        type="button"
+        onClick={handleSubmit}
+        className="ml-auto flex px-6 py-3 gap-4 text-lg mt-4"
+      >
+        Next <MoveRight />
+      </Button>
     </>
   );
 }

@@ -1,9 +1,10 @@
+import MeeraSettings from '@/components/meeraSettings';
 import React from 'react';
 
 function page() {
     return (
-        <div>
-            Comming Soon
+        <div className="flex flex-col px-4  my-5" >
+            <MeeraSettings/>
         </div>
     );
 }

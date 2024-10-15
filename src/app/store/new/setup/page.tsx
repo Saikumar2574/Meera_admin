@@ -35,6 +35,7 @@ function Page() {
           ...details,
           storeName: org.storeName,
           phoneNumber: org.phoneNumber,
+          email:org.email,
           domainName: org.domainName,
           frontendStore: org.frontendStore,
           backendStore: org.backendStore,

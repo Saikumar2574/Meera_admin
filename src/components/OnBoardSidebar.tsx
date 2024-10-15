@@ -43,7 +43,7 @@ const OnBoardSidebar = () => {
     };
   }, []);
   return (
-    <div className=" w-96 p-4 flex flex-col fixed top-0 left-0 h-screen bg-white dark:bg-black ">
+    <div className=" w-96 p-4 flex flex-col fixed top-0 left-0 h-screen bg-white dark:bg-[#191919] ">
       <div className="  flex items-center justify-between  px-4 py-[14px] h-16">
         <img
           src={isDarkMode ? "/FA_dark.png" : "/FA_light.png"}
@@ -52,13 +52,13 @@ const OnBoardSidebar = () => {
         />
         <ModeToggle />
       </div>
-      <hr className="h-0.5 bg-gray-300 border-0"/>
+      <hr className="h-0.5 bg-gray-800 border-0"/>
       <div className="flex-grow px-4 py-2 ">
         <h2 className="text-lg font-bold mt-4 mb-3 tracking-wide">
           Instructions :
         </h2>
       </div>
-      <hr className="h-0.5 bg-gray-300 border-0"/>
+      <hr className="h-0.5 bg-gray-800 border-0"/>
       <div className="flex items-center justify-center px-4 py-2  h-16">
         <img
           src={isDarkMode ? "/user_dark.png" : "/user_light.png"}// Replace with your image path

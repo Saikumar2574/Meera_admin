@@ -27,7 +27,7 @@ function Page() {
         <p className="text-gray-700 mb-4">
           Enjoy all the essential features to get started. This plan includes:
         </p>
-        <ul className="list-disc ml-5 text-gray-700 space-y-1">
+        <ul className="list-disc ml-5 text-gray-700 dark:text-gray-400 space-y-1">
           <li>Access to basic tools and services</li>
           <li>Unlimited product listings</li>
           <li>Email support</li>

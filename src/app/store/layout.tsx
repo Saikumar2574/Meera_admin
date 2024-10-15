@@ -22,7 +22,7 @@ function layout({
           <div className=" sticky top-0  p-4">
             <div className="flex items-center justify-between  px-6 py-2 h-16">
               {/* Left Side: Placeholder Image */}
-              <h3 className="font-bold text-xl ">On Boarding</h3>
+              <h3 className="font-bold text-xl ">ON-BOARDING</h3>
 
               {/* Right Side: Help and Notification Icons */}
               <div className="flex items-center space-x-5">
@@ -36,7 +36,7 @@ function layout({
           <Navbar />
         )}
         <div className="flex-1 overflow-y-auto">
-          <div className=" mx-auto">{children}</div>
+          <div className="relative" style={{ height: 'calc(100% - 4rem)' }}>{children}</div>
         </div>
       </div>
     </>

@@ -41,31 +41,10 @@ function Page() {
 
   return (
     <div className="p-6">
-      <div className="space-y-2 flex-1 max-w-[450px]">
-        <Label htmlFor="store-type">Platform</Label>
-        <Select
-          name="platform"
-          //   onValueChange={(value) =>
-          //     setFormData({ ...formData, platform: value })
-          //   }
-          //   value={formData.platform}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="woocommerce">
-              <span className="font-medium">Wo-Commerce</span>
-            </SelectItem>
-            <SelectItem value="shopify">
-              <span className="font-medium">Shopify</span>
-            </SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+      
       <div className="mt-4">
         <h6 className="font-bold text-2xl mb-4">Install & Activate Plugin</h6>
-        <ul className="list-disc ml-5 mb-6 space-y-2 text-gray-700">
+        <ul className="list-disc ml-5 mb-6 space-y-2 text-gray-700 dark:text-gray-400">
           <li>Download the plugin from the provided link.</li>
           <li>Navigate to your WordPress dashboard.</li>
           <li>Go to the "Plugins" section and click "Add New".</li>
@@ -75,32 +54,7 @@ function Page() {
         {/* Plugin Link */}
         <Button>Download Plugin</Button>
       </div>
-      <div className="flex flex-wrap gap-4 my-4">
-        <div className="space-y-2 flex-1 min-w-[200px]">
-          <Label htmlFor="consumer-key">Consumer Key</Label>
-          <Input
-            type="text"
-            name="consumerKey"
-            // value={formData.consumerKey}
-            // onChange={handleInputChange}
-            placeholder="Key"
-            className="w-full rounded-lg bg-background pl-8"
-          />
-        </div>
-
-        <div className="space-y-2 flex-1 min-w-[200px]">
-          <Label htmlFor="consumer-secret">Consumer Secret</Label>
-          <Input
-            type="text"
-            name="consumerSecret"
-            // value={formData.consumerSecret}
-            // onChange={handleInputChange}
-            placeholder="Secret"
-            className="w-full rounded-lg bg-background pl-8"
-          />
-        </div>
-      </div>
-
+    
       <Button
         onClick={() => handleNext()}
         className="ml-auto flex px-6 py-3 gap-4 text-lg"
